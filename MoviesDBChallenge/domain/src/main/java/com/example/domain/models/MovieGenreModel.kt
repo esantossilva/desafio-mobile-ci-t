@@ -1,6 +1,6 @@
 package com.example.domain.models
 
-data class MovieLanguage(
-    val englishName: String,
+data class MovieGenreModel(
+    val id: Int,
     val name: String,
 )

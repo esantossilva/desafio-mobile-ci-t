@@ -24,4 +24,7 @@
     <dimen name="movie_banner_width">260dp</dimen>
     <dimen name="movie_card_height">200dp</dimen>
     <dimen name="movie_card_width">140dp</dimen>
+
+    <dimen name="cast_card_height">200dp</dimen>
+    <dimen name="cast_card_width">140dp</dimen>
 </resources>

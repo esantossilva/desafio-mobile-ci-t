@@ -1,6 +1,6 @@
 package com.example.data.dto
 
-import com.example.domain.models.MovieRecommendations
+import com.example.domain.models.MovieRecommendationsModel
 import com.google.gson.annotations.SerializedName
 
 data class MovieRecommendationsDto (
@@ -9,4 +9,4 @@ data class MovieRecommendationsDto (
 )
 
 fun MovieRecommendationsDto.toMovieRecommendations() =
-    MovieRecommendations(page = page, results = results.map { it.toMovie() })
+    MovieRecommendationsModel(page = page, results = results.map { it.toMovie() })

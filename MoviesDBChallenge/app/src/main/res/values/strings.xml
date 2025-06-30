@@ -5,6 +5,7 @@
     <string name="popular_movies_label">Popular movies right now</string>
     <string name="now_playing_label">NOW PLAYING</string>
     <string name="title_activity_movie_details">MovieDetailsActivity</string>
+    <string name="cast_section_label">Cast</string>
     <string name="overview_section_label">Overview</string>
     <string name="similar_titles_section_label">Similar Titles</string>
 </resources>

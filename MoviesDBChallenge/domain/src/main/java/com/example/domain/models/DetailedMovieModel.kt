@@ -2,7 +2,7 @@ package com.example.domain.models
 
 data class DetailedMovieModel(
     val adult: Boolean = false,
-    val genres: List<MovieGenre> = emptyList(),
+    val genres: List<MovieGenreModel> = emptyList(),
     val id: Int = 0,
     val originalLanguage: String = "",
     val originalTitle: String = "",
@@ -12,7 +12,7 @@ data class DetailedMovieModel(
     val countries: List<String> = emptyList(),
     val releaseDate: String = "",
     val runtime: Int = 0,
-    val languages: List<MovieLanguage> = emptyList(),
+    val languages: List<MovieLanguageModel> = emptyList(),
     val title: String = "",
     val voteAverage: Double = 0.0,
     val voteCount: Int = 0,

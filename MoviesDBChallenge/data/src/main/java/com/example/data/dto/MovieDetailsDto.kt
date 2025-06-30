@@ -3,8 +3,8 @@ package com.example.data.dto
 import com.example.data.getPosterUrl
 import com.example.domain.enums.ImageSize
 import com.example.domain.models.DetailedMovieModel
-import com.example.domain.models.MovieGenre
-import com.example.domain.models.MovieLanguage
+import com.example.domain.models.MovieGenreModel
+import com.example.domain.models.MovieLanguageModel
 import com.google.gson.annotations.SerializedName
 
 data class MovieDetailsDto(
@@ -69,7 +69,7 @@ data class LanguageDto(
 fun MovieDetailsDto.toDetailedMovieModel() =
     DetailedMovieModel(
         adult = adult,
-        genres = genres.map { MovieGenre(it.id, it.name) },
+        genres = genres.map { MovieGenreModel(it.id, it.name) },
         id = id,
         originalLanguage = originalLanguage,
         originalTitle = originalTitle,
@@ -79,7 +79,7 @@ fun MovieDetailsDto.toDetailedMovieModel() =
         countries = originCountry,
         releaseDate = releaseDate,
         runtime = runtime,
-        languages = spokenLanguages.map { MovieLanguage(it.englishName, it.name) },
+        languages = spokenLanguages.map { MovieLanguageModel(it.englishName, it.name) },
         title = title,
         voteAverage = voteAverage,
         voteCount = voteCount,

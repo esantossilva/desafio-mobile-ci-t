@@ -28,6 +28,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.moviesdbchallenge.R
 import com.example.moviesdbchallenge.composables.components.CardType
+import com.example.moviesdbchallenge.composables.components.CastList
 import com.example.moviesdbchallenge.composables.components.CountryList
 import com.example.moviesdbchallenge.composables.components.DetailPosterBackground
 import com.example.moviesdbchallenge.composables.components.ExpandableTextCard
@@ -53,6 +54,7 @@ fun MovieDetailsScreen(
 ) {
     val movie by viewModel.movie.collectAsStateWithLifecycle()
     val recommendations by viewModel.recommendations.collectAsStateWithLifecycle()
+    val castList by viewModel.cast.collectAsStateWithLifecycle()
     val loadingContent by viewModel.loadingContent.collectAsStateWithLifecycle()
 
     Box(
@@ -118,6 +120,17 @@ fun MovieDetailsScreen(
                     VerticalSpacer(size = dimensionResource(R.dimen.padding_4))
 
                     GenreList(genres = movie.genres.map { it.name })
+
+                    VerticalSpacer(size = dimensionResource(R.dimen.padding_5))
+
+                    ItemTitle(
+                        text = stringResource(R.string.cast_section_label),
+                        fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                    )
+
+                    VerticalSpacer(size = dimensionResource(R.dimen.padding_5))
+
+                    CastList(castList = castList)
 
                     VerticalSpacer(size = dimensionResource(R.dimen.padding_5))
 

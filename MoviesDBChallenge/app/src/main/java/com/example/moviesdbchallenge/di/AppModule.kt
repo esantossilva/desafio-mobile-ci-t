@@ -4,6 +4,7 @@ import com.example.data.api.MovieDbApi
 import com.example.data.datasource.MovieDbWebClient
 import com.example.domain.repository.MovieRepository
 import com.example.moviesdbchallenge.BuildConfig
+import com.example.usecases.GetMovieCreditsUseCase
 import com.example.usecases.GetMovieDetailsUseCase
 import com.example.usecases.GetMovieRecommendationsUseCase
 import com.example.usecases.GetNowPlayingMoviesUseCase
@@ -69,4 +70,8 @@ class AppModule {
     @Provides
     fun providesMovieRecommendations(repository: MovieRepository) =
         GetMovieRecommendationsUseCase(repository)
+
+    @Provides
+    fun providesMovieCredits(repository: MovieRepository) =
+        GetMovieCreditsUseCase(repository)
 }
