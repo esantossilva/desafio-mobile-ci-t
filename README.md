@@ -44,7 +44,7 @@ Since the MovieDb requires an API Key to access, you will need to create an acco
 # For customization when using a Version Control System, please read the
 # header note.
 sdk.dir=C\:\\Your\\Path\\To\\Local\\Android\\Sdk
-MOVIE_DB_API_KEY=your_api_key_without_quotation_marks \\ Ex.: hd82h7ho2husqubdaoisd02w1hd8129dhsa (not real key)
+MOVIE_DB_API_KEY=your_api_key_without_quotation_marks # Ex.: hd82h7ho2husqubdaoisd02w1hd8129dhsa (not real key)
 ```
 
 ----------------------------------------------------------------------------
