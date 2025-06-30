@@ -1,10 +1,10 @@
 package com.example.data.datasource
 
 import com.example.domain.models.DetailedMovieModel
-import com.example.domain.models.MovieGenre
-import com.example.domain.models.MovieLanguage
+import com.example.domain.models.MovieGenreModel
+import com.example.domain.models.MovieLanguageModel
 import com.example.domain.models.MovieModel
-import com.example.domain.models.MovieRecommendations
+import com.example.domain.models.MovieRecommendationsModel
 import com.example.domain.models.MoviesPageModel
 import com.example.domain.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
@@ -52,16 +52,16 @@ class MovieDbFake : MovieRepository {
         val detailedMovie = DetailedMovieModel(
             adult = true,
             id = 1,
-            countries = listOf("Brasil", "USA", "Germany"),
-            genres = listOf(MovieGenre(128, "Drama"), MovieGenre(13, "Comedy")),
+            countries = listOf("BR", "US", "DE"),
+            genres = listOf(MovieGenreModel(128, "Drama"), MovieGenreModel(13, "Comedy")),
             originalLanguage = "English",
             originalTitle = "My Favorite Movie",
             overview = "ahwuihdauiwheuiaheuhaisueh auisheauishe uasheuahsieuhase aushei",
             popularity = 70.0,
             poster = "https://image.tmdb.org/t/p/w500/yFHHfHcUgGAxziP1C3lLt0q2T4s.jpg",
-            releaseDate = "25/05/2023",
+            releaseDate = "2023-05-23",
             runtime = 89,
-            languages = listOf(MovieLanguage("Portuguese", "Português"), MovieLanguage("English", "Inglês")),
+            languages = listOf(MovieLanguageModel("Portuguese", "Português"), MovieLanguageModel("English", "Inglês")),
             title = "My Favorite Movie",
             voteAverage = 85.0,
             voteCount = 2000,
@@ -116,9 +116,15 @@ class MovieDbFake : MovieRepository {
         emit(DetailedMovieModel())
     }.flowOn(Dispatchers.IO)
 
-    override suspend fun getMovieRecommendations(movieId: Int): Flow<MovieRecommendations> = flow<MovieRecommendations> {
-        emit(MovieRecommendations(1, movieList))
+    override suspend fun getMovieRecommendations(movieId: Int): Flow<MovieRecommendationsModel> = flow<MovieRecommendationsModel> {
+        emit(MovieRecommendationsModel(1, movieList))
     }.catch { e ->
-        emit(MovieRecommendations(1, emptyList()))
+        emit(MovieRecommendationsModel(1, emptyList()))
+    }.flowOn(Dispatchers.IO)
+
+    override suspend fun getMovieCredits(movieId: Int): Flow<MovieCreditsModel> = flow<MovieCreditsModel> {
+        emit(movieCast)
+    }.catch { e ->
+        emit(MovieCreditsModel())
     }.flowOn(Dispatchers.IO)
 }

@@ -5,7 +5,7 @@ import com.example.data.dto.toDetailedMovieModel
 import com.example.data.dto.toMovieRecommendations
 import com.example.data.dto.toMoviesPage
 import com.example.domain.models.DetailedMovieModel
-import com.example.domain.models.MovieRecommendations
+import com.example.domain.models.MovieRecommendationsModel
 import com.example.domain.models.MoviesPageModel
 import com.example.domain.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
@@ -47,11 +47,12 @@ class MovieDbWebClient(
         emit(DetailedMovieModel())
     }.flowOn(Dispatchers.IO)
 
-    override suspend fun getMovieRecommendations(movieId: Int): Flow<MovieRecommendations> = flow {
+    override suspend fun getMovieRecommendations(movieId: Int): Flow<MovieRecommendationsModel> = flow {
         val movieRecommendations =
             api.getMovieRecommendations(movieId, apiKey).toMovieRecommendations()
         emit(movieRecommendations)
     }.catch { e ->
-        emit(MovieRecommendations(1, emptyList()))
+        emit(MovieRecommendationsModel(1, emptyList()))
+    }.flowOn(Dispatchers.IO)
     }.flowOn(Dispatchers.IO)
 }
