@@ -2,9 +2,11 @@ package com.example.data.datasource
 
 import com.example.data.api.MovieDbApi
 import com.example.data.dto.toDetailedMovieModel
+import com.example.data.dto.toMovieCredits
 import com.example.data.dto.toMovieRecommendations
 import com.example.data.dto.toMoviesPage
 import com.example.domain.models.DetailedMovieModel
+import com.example.domain.models.MovieCreditsModel
 import com.example.domain.models.MovieRecommendationsModel
 import com.example.domain.models.MoviesPageModel
 import com.example.domain.repository.MovieRepository
@@ -54,5 +56,11 @@ class MovieDbWebClient(
     }.catch { e ->
         emit(MovieRecommendationsModel(1, emptyList()))
     }.flowOn(Dispatchers.IO)
+
+    override suspend fun getMovieCredits(movieId: Int): Flow<MovieCreditsModel> = flow {
+        val movieCredits = api.getMovieCredits(movieId, apiKey).toMovieCredits()
+        emit(movieCredits)
+    }.catch {
+        emit(MovieCreditsModel())
     }.flowOn(Dispatchers.IO)
 }

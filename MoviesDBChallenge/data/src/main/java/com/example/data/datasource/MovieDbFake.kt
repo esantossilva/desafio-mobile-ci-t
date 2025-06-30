@@ -1,6 +1,10 @@
 package com.example.data.datasource
 
+import com.example.data.getPosterUrl
+import com.example.domain.enums.ImageSize
+import com.example.domain.models.CastModel
 import com.example.domain.models.DetailedMovieModel
+import com.example.domain.models.MovieCreditsModel
 import com.example.domain.models.MovieGenreModel
 import com.example.domain.models.MovieLanguageModel
 import com.example.domain.models.MovieModel
@@ -65,6 +69,24 @@ class MovieDbFake : MovieRepository {
             title = "My Favorite Movie",
             voteAverage = 85.0,
             voteCount = 2000,
+        )
+
+        val castModel = CastModel(
+            id = 1,
+            castId = 0,
+            character = "This Character",
+            name = "Artist",
+            imageUrl = getPosterUrl(posterPath = "", ImageSize.LARGE)
+        )
+
+        val movieCast = MovieCreditsModel(
+            id = 0,
+            cast = listOf(
+                castModel,
+                castModel,
+                castModel,
+                castModel,
+            )
         )
 
         val movieList = mutableListOf(
