@@ -1,6 +1,7 @@
 package com.example.data.api
 
 import com.example.data.dto.DatedMoviesPageDto
+import com.example.data.dto.MovieCreditsDto
 import com.example.data.dto.MovieDetailsDto
 import com.example.data.dto.MovieRecommendationsDto
 import com.example.data.dto.MoviesPageDto
@@ -29,4 +30,10 @@ interface MovieDbApi {
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String,
     ): MovieRecommendationsDto
+
+    @GET("{movie_id}/credits")
+    suspend fun getMovieCredits(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String,
+    ): MovieCreditsDto
 }
