@@ -1,3 +1,36 @@
+# Overview
+
+I've taken the following challenge to create a project as a study for different mobile development concepts. The app is a movies app that consumes [The Movie Db API](https://www.themoviedb.org/) and displays:
+
+- Now playing movies
+- Popular movies
+- Upcoming movies
+- Detailed information about these movies, including a list of recommendations based on the movie.
+
+## Stack
+
+- Kotlin
+- Jetpack Compose
+- Clean Architecture (separate modules for app, domain, data layers, including a separate module for usecases)
+- MVVM
+- Kotlin Flow
+- Hilt for dependency injection
+- Retrofit for consuming the API data (including logging interceptor for debugging)
+- Compose NavController
+- BuildConfig for storing API key on local properties
+- legacyBackgroundBlur for glassmorphic design on some components (Ex.: Movie genre list).
+
+## Future improvement
+
+- Some UI optimizations needed to ensure better user experience.
+- Improve color contrast for better accessibility.
+
+## Demo video
+
+
+
+----------------------------------------------------------------------------
+
 # Desafio Mobile - 2019
 
 Bem Vindo ao desafio mobile da CI&T, por favor siga as instruções a baixo para realizar o desafio 😀.
