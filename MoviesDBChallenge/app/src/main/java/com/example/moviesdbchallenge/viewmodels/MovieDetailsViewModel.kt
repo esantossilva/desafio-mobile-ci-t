@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.DetailedMovieModel
-import com.example.domain.models.MovieRecommendations
+import com.example.domain.models.MovieRecommendationsModel
 import com.example.usecases.GetMovieDetailsUseCase
 import com.example.usecases.GetMovieRecommendationsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,8 +28,8 @@ class MovieDetailsViewModel @Inject constructor(
     private val _movie = MutableStateFlow(DetailedMovieModel())
     val movie: StateFlow<DetailedMovieModel> = _movie
 
-    private val _recommendations = MutableStateFlow(MovieRecommendations())
-    val recommendations: StateFlow<MovieRecommendations> = _recommendations
+    private val _recommendations = MutableStateFlow(MovieRecommendationsModel())
+    val recommendations: StateFlow<MovieRecommendationsModel> = _recommendations
 
     init {
         getMovieDetails()
