@@ -32,8 +32,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.example.moviesdbchallenge.R
 import com.example.moviesdbchallenge.ui.theme.MoviesDBChallengeTheme
-import com.primex.core.ExperimentalToolkitApi
-import com.primex.core.blur.legacyBackgroundBlur
 
 @Composable
 fun SectionTitle(
@@ -108,7 +106,6 @@ fun ItemSubtitle(
     )
 }
 
-@OptIn(ExperimentalToolkitApi::class)
 @Composable
 fun OutlineLabel(
     modifier: Modifier = Modifier,
@@ -123,8 +120,7 @@ fun OutlineLabel(
     Text(
         modifier = modifier
             .clip(RoundedCornerShape(50.dp))
-            .background(Color.White.copy(alpha = 0.15f))
-            .legacyBackgroundBlur(radius = 10f)
+            .background(Color.White.copy(alpha = 0.05f))
             .padding(dimensionResource(R.dimen.padding_3)),
         text = text,
         color = textColor,
@@ -137,7 +133,6 @@ fun OutlineLabel(
     )
 }
 
-@OptIn(ExperimentalToolkitApi::class)
 @Composable
 fun ExpandableTextCard(
     modifier: Modifier = Modifier,
@@ -147,7 +142,6 @@ fun ExpandableTextCard(
 
     Card(
         modifier = modifier
-            .legacyBackgroundBlur(radius = 10f)
             .fillMaxWidth()
             .clickable { expanded.value = !expanded.value },
         shape = RoundedCornerShape(10.dp),
