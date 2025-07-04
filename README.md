@@ -22,6 +22,8 @@ I've taken the following challenge to create a project as a study for different 
 
 ## Future improvement
 
+- Test implementation
+- Pagination
 - Some UI optimizations needed to ensure better user experience.
 - Improve color contrast for better accessibility.
 
