@@ -1,5 +1,7 @@
 package com.example.domain.models
 
+import com.example.domain.enums.MediaType
+
 data class MovieModel(
     val adult: Boolean = false,
     val backdropPath: String = "",
@@ -8,6 +10,7 @@ data class MovieModel(
     val originalLanguage: String = "",
     val originalTitle: String = "",
     val overview: String = "",
+    val mediaType: MediaType = MediaType.MOVIE,
     val popularity: Double = 0.0,
     val posterUrl: String = "",
     val releaseDate: String = "",
