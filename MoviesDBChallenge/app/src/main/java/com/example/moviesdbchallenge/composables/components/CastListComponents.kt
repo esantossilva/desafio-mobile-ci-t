@@ -30,6 +30,7 @@ fun CastList(
     castList: List<CastModel>,
 ) {
     LazyRow(
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_3))
     ) {
