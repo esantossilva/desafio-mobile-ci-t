@@ -30,6 +30,7 @@ fun CastList(
     castList: List<CastModel>,
 ) {
     LazyRow(
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_3))
     ) {
@@ -44,7 +45,7 @@ fun CastCard(
     modifier: Modifier = Modifier,
     cast: CastModel? = null,
     contentDescription: String = "",
-    placeholder: Painter = painterResource(R.drawable.placeholder),
+    placeholder: Painter = painterResource(R.drawable.person_placeholder),
 ) {
     Column(
         modifier = modifier
