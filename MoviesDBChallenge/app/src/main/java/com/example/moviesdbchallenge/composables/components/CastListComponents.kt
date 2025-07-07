@@ -44,7 +44,7 @@ fun CastCard(
     modifier: Modifier = Modifier,
     cast: CastModel? = null,
     contentDescription: String = "",
-    placeholder: Painter = painterResource(R.drawable.placeholder),
+    placeholder: Painter = painterResource(R.drawable.person_placeholder),
 ) {
     Column(
         modifier = modifier
