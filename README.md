@@ -18,12 +18,14 @@ I've taken the following challenge to create a project as a study for different 
 - Retrofit for consuming the API data (including logging interceptor for debugging)
 - Compose NavController
 - BuildConfig for storing API key on local properties
-- legacyBackgroundBlur for glassmorphic design on some components (Ex.: Movie genre list).
 
 ## Future improvement
 
+- Test implementation
+- Pagination
 - Some UI optimizations needed to ensure better user experience.
 - Improve color contrast for better accessibility.
+- Use legacyBackgroundBlur or newBlur to create glassmorphic design (previously removed for causing crashes).
 
 ## Demo video
 
