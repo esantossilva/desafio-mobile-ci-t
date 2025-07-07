@@ -20,7 +20,7 @@ data class CastModelDto(
     @SerializedName("name") val name: String,
     @SerializedName("original_name") val originalName: String,
     @SerializedName("popularity") val popularity: Double,
-    @SerializedName("profile_path") val profilePath: String,
+    @SerializedName("profile_path") val profilePath: String?,
     @SerializedName("cast_id") val castId: Int,
     @SerializedName("character") val character: String,
     @SerializedName("credit_id") val creditId: String,
@@ -35,7 +35,7 @@ data class CrewModelDto(
     @SerializedName("name") val name: String,
     @SerializedName("original_name") val originalName: String,
     @SerializedName("popularity") val popularity: Double,
-    @SerializedName("profile_path") val profilePath: String,
+    @SerializedName("profile_path") val profilePath: String?,
     @SerializedName("credit_id") val creditId: String,
     @SerializedName("department") val department: String,
     @SerializedName("job") val job: String,
@@ -47,7 +47,7 @@ fun CastModelDto.toCastModel() =
         castId = castId,
         name = name,
         character = character,
-        imageUrl = getPosterUrl(profilePath, ImageSize.LARGE),
+        imageUrl = profilePath?.let { getPosterUrl(profilePath, ImageSize.LARGE) } ?: "",
     )
 
 fun MovieCreditsDto.toMovieCredits() =
